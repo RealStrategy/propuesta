@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- todoreal.com -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta Especial</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        #si-button {
+            background-color: green;
+            color: white;
+        }
+
+        #no-button {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>¿Quieres ser mi novia?</h1>
+    <div class="button-container">
+        <button class="button" id="si-button" onclick="respuesta('si')">Sí</button>
+        <button class="button" id="no-button" onclick="respuesta('no')">No</button>
+    </div>
+
+    <script>
+        function respuesta(respuesta) {
+            if (respuesta === 'si') {
+                alert('Desde ahora eres mi pareja ❤️');
+            } else {
+                alert('Enserio que me caes mal :) nojaooo');
+            }
+        }
+        setInterval(moverBotonNoAleatoriamente, 500);
+
+        function moverBotonNoAleatoriamente() {
+            var botonNo = document.getElementById('no-button');
+            var maxX = window.innerWidth - botonNo.offsetWidth;
+            var maxY = window.innerHeight - botonNo.offsetHeight;
+
+            var randomX = Math.floor(Math.random() * maxX);
+            var randomY = Math.floor(Math.random() * maxY);
+
+            botonNo.style.position = 'absolute';
+            botonNo.style.left = randomX + 'px';
+            botonNo.style.top = randomY + 'px';
+        }
+    </script>
+</body>
+</html>
